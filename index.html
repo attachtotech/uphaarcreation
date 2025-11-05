@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Uphaar Creation — Thoughtful Luxury Gifting</title>
   <meta name="description" content="Uphaar Creation by Prisha Jain — bespoke hampers & unique gifting solutions. Nationwide delivery across India." />
-  <!-- Fonts: Playfair Display for headings, DM Sans for body -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -18,49 +18,53 @@
       --card-radius:20px;
       --max-w:1200px;
       --accent-dark:#073;
+      --cta:#ff7f50;
+      --glass: rgba(255,255,255,0.82);
     }
+    /* Reset / base */
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#fffefc 0%, #fffdf7 100%);font-family:"DM Sans",system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--ink);-webkit-font-smoothing:antialiased}
-    .wrap{max-width:var(--max-w);margin:28px auto;padding:28px}
-    .logo img {
-  width: 90px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: contain;
-  box-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
-  transition: transform 0.3s ease;
-}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#fffefc 0%, #fffdf7 100%);font-family:"DM Sans",system-ui,-apple-system,'Segoe UI',Roboto,Arial;color:var(--ink);-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+    a { color: inherit; text-decoration: none; }
+    .wrap{max-width:var(--max-w);margin:28px auto;padding:18px}
 
-.logo img:hover {
-  transform: scale(1.1);
-}
-
-    header{position:sticky;top:18px;z-index:120;background:rgba(255,255,255,0.82);backdrop-filter:blur(8px);border-radius:14px;padding:10px 16px;box-shadow:0 12px 40px rgba(10,10,10,0.06)}
+    /* Header / Nav */
+    header{position:sticky;top:14px;z-index:120;background:var(--glass);backdrop-filter:blur(8px);border-radius:14px;padding:10px 16px;box-shadow:0 12px 40px rgba(10,10,10,0.06)}
     .nav{display:flex;align-items:center;gap:14px}
     .brand{display:flex;align-items:center;gap:14px}
-    .mark{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--yellow));display:flex;align-items:center;justify-content:center;font-size:20px}
+    .logo img{ width:72px; height:64px; border-radius:12px; object-fit:cover; box-shadow:0 8px 22px rgba(255,182,193,0.35); transition:transform .25s ease }
+    .logo img:hover{ transform:scale(1.04) }
     .brand h1{font-family:'Playfair Display', serif;margin:0;font-size:18px}
-    nav{margin-left:auto;display:flex;gap:12px;align-items:center}
-    nav a{font-weight:600;color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:10px}
+    nav{margin-left:auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    nav a{font-weight:600;color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:10px;font-size:14px}
     .cta{background:linear-gradient(90deg,var(--green),var(--pink));padding:9px 14px;border-radius:12px;font-weight:800;color:#052}
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 520px;gap:28px;align-items:center;padding:44px 20px}
+    /* Hero slider (full-width block) */
+    #hero-slider{position:relative; width:100%; height:72vh; overflow:hidden; border-radius:18px; margin:10px 0}
+    #hero-slider .slider{height:100%; display:flex; transition:transform 1s ease-in-out; will-change:transform}
+    #hero-slider .slider img{flex:0 0 100%; width:100%; height:100%; object-fit:cover; display:block}
+    /* overlay text */
+    #hero-slider .overlay{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); background:rgba(255,255,255,0.84); padding:18px 24px; border-radius:14px; text-align:center; max-width:92%; box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+    #hero-slider .overlay h1{font-family:'Playfair Display',serif; color:var(--cta); margin:0; font-size:clamp(1.25rem,3.8vw,2.2rem)}
+    #hero-slider .overlay p{color:rgba(0,0,0,0.65); margin:10px 0 0; font-size:0.95rem}
+    #hero-slider .overlay .btn{display:inline-block;margin-top:14px;background:var(--cta); color:#fff; padding:10px 20px;border-radius:28px;font-weight:600}
+
+    /* dots */
+    #hero-slider .dots{position:absolute; bottom:14px; left:50%; transform:translateX(-50%); display:flex; gap:8px; z-index:10}
+    #hero-slider .dot{width:10px; height:10px; border-radius:50%; background:var(--cta); opacity:.4; cursor:pointer; transition:opacity .18s}
+    #hero-slider .dot.active{opacity:1; transform:scale(1.1)}
+
+    /* Hero section below (content + card) */
+    .hero{display:grid;grid-template-columns:1fr 520px;gap:28px;align-items:center;padding:28px 20px}
     .kicker{display:inline-block;padding:8px 12px;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--orange));font-weight:700;color:#2b0b0b;margin-bottom:12px}
-    h2{font-family:'Playfair Display', serif;font-size:clamp(30px,5.2vw,48px);line-height:1.03;margin:8px 0;color:var(--ink)}
+    h2{font-family:'Playfair Display', serif;font-size:clamp(22px,4.8vw,42px);line-height:1.03;margin:8px 0;color:var(--ink)}
     p.lead{color:rgba(17,17,17,0.68);font-size:16px;margin-bottom:18px}
     .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
 
-    .btn{padding:12px 18px;border-radius:12px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:10px}
+    .btn{padding:12px 18px;border-radius:12px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;gap:10px;cursor:pointer}
     .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.06)}
     .btn-primary{background:linear-gradient(90deg,var(--green),var(--yellow));color:var(--accent-dark)}
 
-    /* Hero card art */
     .hero-card{background:linear-gradient(135deg,#fff7fb,#fffdf0);border-radius:24px;padding:18px;box-shadow:0 30px 60px rgba(20,20,20,0.08);position:relative;overflow:hidden}
-    .ribbon{position:absolute;left:18px;top:18px;padding:8px 12px;border-radius:10px;background:linear-gradient(90deg,var(--orange),var(--pink));font-weight:800}
-    .hero-photo{height:360px;border-radius:14px;background-image:url('https://images.unsplash.com/photo-1607082349566-187a5b4b11f3?auto=format&fit=crop&w=1400&q=80');background-size:cover;background-position:center;display:flex;align-items:flex-end;justify-content:flex-start;padding:18px;color:#231;font-weight:700}
-    .floating-icons{position:absolute;right:12px;bottom:12px;display:flex;gap:8px}
-    .icon-dot{width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--green),var(--yellow));display:flex;align-items:center;justify-content:center;font-weight:800}
 
     /* Marquee */
     .marquee{margin:18px 0;padding:10px;border-radius:12px;background:linear-gradient(90deg,var(--yellow),var(--orange));font-weight:700;overflow:hidden}
@@ -72,39 +76,80 @@
     .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 
     .card{border-radius:16px;padding:12px;background:linear-gradient(180deg,#fff,#fff);box-shadow:0 12px 30px rgba(10,10,10,0.04);transition:transform .4s ease, box-shadow .4s ease}
-    .card:hover{transform:translateY(-14px);box-shadow:0 36px 90px rgba(10,10,10,0.09)}
+    .card:hover{transform:translateY(-10px);box-shadow:0 36px 90px rgba(10,10,10,0.09)}
     .placeholder-img{height:170px;border-radius:12px;background-size:cover;background-position:center;display:flex;align-items:end;padding:12px;color:#2b0b0b;font-weight:700}
 
-    /* Featured carousel */
-    .carousel{display:flex;gap:14px;overflow:auto;padding:8px}
-    .product{min-width:280px;border-radius:14px;padding:12px;background:linear-gradient(180deg,#fff,#fff);box-shadow:0 14px 40px rgba(10,10,10,0.04)}
-    .product .visual{height:170px;border-radius:12px;background-size:cover;background-position:center;display:flex;align-items:end;padding:12px;font-weight:800;color:#2b0b0b}
+    /* creative gifts */
+    .creative-row{display:flex; flex-wrap:wrap; justify-content:center; gap:20px}
 
-    /* Builder */
+    /* builder */
     .builder{display:flex;gap:16px;flex-wrap:wrap}
     .options{display:flex;gap:10px;flex-wrap:wrap}
     .chip{padding:10px 14px;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--yellow));cursor:pointer;font-weight:700;transition:transform .18s}
     .chip.selected{box-shadow:0 16px 40px rgba(0,0,0,0.06);transform:translateY(-6px)}
 
-    /* About / founder */
+    /* about / founder */
     .about-grid{display:flex;gap:20px;align-items:flex-start}
-    .founder{width:160px;height:160px;border-radius:999px;background-image:url('https://images.unsplash.com/photo-1598369392125-4b9b2d1f9f8f?auto=format&fit=crop&w=800&q=80');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-weight:800;color:#063;font-size:20px;box-shadow:0 20px 40px rgba(0,0,0,0.06)}
+    .founder{width:160px;height:160px;border-radius:999px;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;font-weight:800;color:#063;font-size:20px;box-shadow:0 20px 40px rgba(0,0,0,0.06)}
     .founder-note{margin-top:12px;background:linear-gradient(180deg,#fff,#fff);padding:14px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.04);font-family:'Playfair Display',serif}
 
-    /* Contact */
+    /* contact grid */
     .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 
-    /* Footer */
+    /* footer */
     footer{margin-top:12px;padding:24px;text-align:center;font-weight:700}
 
-    /* Confetti */
+    /* confetti */
     .confetti{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;z-index:60}
 
     /* entrance */
     .fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.9,.3,1)}
 
-    @media (max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr 420px}}
-    @media (max-width:720px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.about-grid{flex-direction:column}.contact-grid{grid-template-columns:1fr}.hero-photo{height:260px}}
+    /* small tweaks */
+    input, select, textarea { font-family: inherit; font-size:14px }
+    .btn.small { padding:8px 12px; font-size:0.95rem }
+
+    /* Responsive rules */
+    @media (max-width:1200px){
+      .hero{grid-template-columns:1fr 440px}
+      .grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width:900px){
+      header{padding:10px}
+      .wrap{padding:12px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      #hero-slider{height:58vh}
+      .hero{grid-template-columns:1fr; padding:20px 12px}
+      .hero-card{max-width:520px;margin:0 auto}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .wrap{margin:12px auto;padding:12px}
+      header{border-radius:12px;padding:10px}
+      .logo img{ width:56px; height:50px }
+      nav{gap:6px}
+      nav a{padding:8px 10px; font-size:13px}
+      #hero-slider{height:52vh; border-radius:12px}
+      .marquee .track{animation-duration:10s}
+      .creative-row > div { width:45% }
+      .grid{grid-template-columns:1fr}
+      .hero-card{padding:16px}
+      .founder{width:120px;height:120px}
+      .hero .kicker{font-size:13px;padding:6px 10px}
+      .hero .overlay{padding:12px}
+      .hero-cta{justify-content:flex-start}
+      .contact-grid{grid-template-columns:1fr}
+      .creative-row > div img{height:140px}
+    }
+    @media (max-width:420px){
+      #hero-slider{height:46vh}
+      .creative-row > div { width:100% }
+      .overlay h1{font-size:1.1rem}
+      .overlay p{font-size:0.9rem}
+      .btn{padding:10px 14px}
+      .brand h1{font-size:16px}
+      .founder-note{font-size:14px}
+    }
   </style>
 </head>
 <body>
@@ -115,8 +160,8 @@
       <div class="nav">
         <div class="brand">
           <div class="logo">
-  <img src="logo.jpeg" alt="Uphaar Creation Logo" />
-</div>
+            <img src="logo.jpeg" alt="Uphaar Creation Logo" />
+          </div>
           <div>
             <h1>Uphaar Creation</h1>
             <div style="font-size:12px;color:rgba(17,17,17,0.6)">Luxury Gifting • By Prisha Jain</div>
@@ -136,88 +181,35 @@
 
     <main>
       <!-- Hero Slider Section -->
-<section id="hero-slider" style="position:relative; width:100%; height:80vh; overflow:hidden; border-radius:0 0 30px 30px;">
-  <div class="slider" style="width:100%; height:100%; display:flex; transition:transform 1s ease-in-out;">
-    <img src="1.jpg" alt="Festive Hamper"
-      style="width:100%; height:100%; object-fit:cover;">
-    <img src="2.jpg" alt="Luxury Hamper"
-      style="width:100%; height:100%; object-fit:cover;">
-    <img src="3.jpg" alt="Wellness Hamper"
-      style="width:100%; height:100%; object-fit:cover;">
-       <img src="4.jpg" alt="Festive Hamper"
-      style="width:100%; height:100%; object-fit:cover;">
-    <img src="5.jpg" alt="Luxury Hamper"
-      style="width:100%; height:100%; object-fit:cover;">
-    <img src="8.jpg" alt="Wellness Hamper"
-      style="width:100%; height:100%; object-fit:cover;">
-      <img src="7.jpg" alt="Luxury Hamper"
-      style="width:100%; height:100%; object-fit:cover;">
-    <img src="9.jpg" alt="Wellness Hamper"
-      style="width:100%; height:100%; object-fit:cover;">
-  </div>
+      <section id="hero-slider" aria-label="Hero slider">
+        <div class="slider" id="slider">
+          <!-- keep your images with filenames you use locally -->
+          <img src="1.jpg" alt="Festive Hamper">
+          <img src="2.jpg" alt="Luxury Hamper">
+          <img src="3.jpg" alt="Wellness Hamper">
+          <img src="4.jpg" alt="Festive Hamper">
+          <img src="5.jpg" alt="Luxury Hamper">
+          <img src="8.jpg" alt="Wellness Hamper">
+          <img src="7.jpg" alt="Luxury Hamper">
+          <img src="9.jpg" alt="Wellness Hamper">
+        </div>
 
-  <!-- Overlay Text -->
-  <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
-              background:rgba(255,255,255,0.75); padding:20px 30px; border-radius:15px;
-              text-align:center; animation:fadeIn 1.2s ease;">
-    <h1 style="font-family:'Playfair Display',serif; color:#ff7f50; margin:0; font-size:2.2rem;">
-      Luxury Hampers. Thoughtfully Curated.
-    </h1>
-    <p style="color:rgba(0,0,0,0.65); font-family:'Poppins',sans-serif; margin-top:10px;">
-      Make every occasion special with Uphaar Creation gifts — crafted with love 💝
-    </p>
-    <a href="#personalize"
-      style="display:inline-block; margin-top:15px; background-color:#ff7f50; color:#fff;
-      padding:10px 24px; border-radius:30px; text-decoration:none; font-size:14px; transition:0.3s;">
-      Personalize Your Hamper
-    </a>
-  </div>
+        <!-- Overlay Text -->
+        <div class="overlay" role="banner">
+          <h1>Luxury Hampers. Thoughtfully Curated.</h1>
+          <p>Make every occasion special with Uphaar Creation gifts — crafted with love 💝</p>
+          <a href="#personalize" class="btn">Personalize Your Hamper</a>
+        </div>
 
-  <!-- Navigation Dots -->
-  <div style="position:absolute; bottom:18px; left:50%; transform:translateX(-50%);
-              display:flex; gap:8px;">
-    <span class="dot" style="width:10px; height:10px; background:#ff7f50; border-radius:50%; cursor:pointer; opacity:0.7;"></span>
-    <span class="dot" style="width:10px; height:10px; background:#ff7f50; border-radius:50%; cursor:pointer; opacity:0.3;"></span>
-    <span class="dot" style="width:10px; height:10px; background:#ff7f50; border-radius:50%; cursor:pointer; opacity:0.3;"></span>
-  </div>
-
-  <style>
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-  </style>
-
-  <script>
-    const slider = document.querySelector('#hero-slider .slider');
-    const dots = document.querySelectorAll('#hero-slider .dot');
-    let index = 0;
-
-    function updateSlider() {
-      slider.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach((dot, i) => {
-        dot.style.opacity = i === index ? '0.8' : '0.3';
-      });
-    }
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        index = i;
-        updateSlider();
-      });
-    });
-
-    setInterval(() => {
-      index = (index + 1) % 3;
-      updateSlider();
-    }, 5000); // 5 seconds
-
-    updateSlider();
-  </script>
-</section>
+        <!-- Navigation Dots (generated by JS) -->
+        <div class="dots" id="heroDots" aria-hidden="false"></div>
+      </section>
 
       <!-- HERO -->
       <section class="hero">
         <div class="hero-left fade-in">
           <div class="kicker">Bespoke Hampers • Nationwide</div>
-          <h2><b style="color:#ff7f50">Uphaar Creation</b> — gifts that whisper elegance & feel like home.</h2>
+          <h2><b style="color:var(--cta)">Uphaar Creation</b> — gifts that whisper elegance & feel like home.</h2>
           <p class="lead">Handcrafted hampers from Vadodara, blended with artful design and warm storytelling. Festive, corporate, wedding, wellness — curated for every heart.</p>
 
           <div class="hero-cta">
@@ -225,7 +217,7 @@
             <a class="btn btn-ghost" href="#builder">Create a Hamper</a>
           </div>
 
-          <div style="margin-top:18px" class="marquee">
+          <div style="margin-top:18px" class="marquee" aria-hidden>
             <div class="track">🪄 Festive • Corporate • Weddings • Birthdays • Wellness • Baby • Chocolate • Custom Themes &nbsp;&nbsp;&nbsp;</div>
           </div>
 
@@ -236,31 +228,24 @@
           </div>
         </div>
 
-        <div class="hero-card fade-in" style="text-align:center; position:relative; padding:25px 10px; max-width:600px; margin:0 auto;">
-  
-  <!-- Festive Ribbon -->
-  <div style="display:inline-block; background:linear-gradient(90deg,#ffb347,#ffcc33); color:#fff; padding:8px 16px; border-radius:30px; font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:600; letter-spacing:0.5px; box-shadow:0 6px 15px rgba(255,204,102,0.5); margin-bottom:12px;">
-    🎄 Christmas Hampers · Coming Soon
-  </div>
+        <div class="hero-card fade-in" style="text-align:center; position:relative; padding:18px; max-width:640px; margin:0 auto;">
+          <div style="display:inline-block; background:linear-gradient(90deg,#ffb347,#ffcc33); color:#fff; padding:8px 16px; border-radius:30px; font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:600; letter-spacing:0.5px; box-shadow:0 6px 15px rgba(255,204,102,0.5); margin-bottom:12px;">
+            🎄 Christmas Hampers · Coming Soon
+          </div>
 
-  <!-- Festive Image Section -->
-  <div aria-hidden="true" style="margin:15px auto; width:80%; max-width:350px; border-radius:15px; overflow:hidden; position:relative; box-shadow:0 8px 18px rgba(255,182,193,0.4); transition:transform 0.3s ease;">
-    <img src="Christmas.jpg" alt="Uphaar Creation Festive Hamper" style="width:100%; height:auto; border-radius:15px; display:block;">
+          <div aria-hidden="true" style="margin:12px auto; width:85%; max-width:350px; border-radius:15px; overflow:hidden; position:relative; box-shadow:0 8px 18px rgba(255,182,193,0.4); transition:transform 0.3s ease;">
+            <img src="Christmas.jpg" alt="Uphaar Creation Festive Hamper" style="width:100%; height:auto; border-radius:15px; display:block;">
+            <div style="position:absolute; bottom:8px; left:50%; transform:translateX(-50%); background:rgba(255,255,255,0.85); backdrop-filter:blur(5px); padding:6px 14px; border-radius:20px; font-family:'Playfair Display',serif; font-size:0.9rem; color:#333; font-weight:600;">
+              Limited Edition
+            </div>
+          </div>
 
-    <!-- Label -->
-    <div style="position:absolute; bottom:8px; left:50%; transform:translateX(-50%); background:rgba(255,255,255,0.85); backdrop-filter:blur(5px); padding:5px 14px; border-radius:20px; font-family:'Playfair Display',serif; font-size:0.9rem; color:#333; font-weight:600; box-shadow:0 3px 8px rgba(255,204,204,0.4);">
-    Limited Edition 
-    </div>
-  </div>
-
-  <!-- Floating Icons -->
-  <div style="display:flex; justify-content:center; gap:10px; margin-top:8px; font-size:1.3rem;">
-    <div style="animation:floatIcons 3s ease-in-out infinite;">🎅</div>
-    <div style="animation:floatIcons 3s ease-in-out infinite;">🕯️</div>
-    <div style="animation:floatIcons 3s ease-in-out infinite;">🎁</div>
-  </div>
-
-</div>
+          <div style="display:flex; justify-content:center; gap:10px; margin-top:8px; font-size:1.3rem;">
+            <div style="animation:floatIcons 3s ease-in-out infinite;">🎅</div>
+            <div style="animation:floatIcons 3s ease-in-out infinite;">🕯️</div>
+            <div style="animation:floatIcons 3s ease-in-out infinite;">🎁</div>
+          </div>
+        </div>
       </section>
 
       <!-- CATEGORIES -->
@@ -319,236 +304,173 @@
         </div>
       </section>
 
-      <!-- FEATURED -->
-       <section id="creative-gifts" class="fade-in" style="padding:60px 20px; background:#fffdf8; text-align:center;">
-  <h3 style="font-family:'Playfair Display',serif; color:#ff7f50; font-size:1.6rem; margin-bottom:8px;">
-    Creative Gifts Collection ✨
-  </h3>
-  <p style="color:rgba(17,17,17,0.6); font-size:14px; margin-bottom:30px;">
-    Unique, aesthetic, and fun — handcrafted ideas that make every gift personal.
-  </p>
+      <!-- FEATURED / CREATIVE GIFTS -->
+      <section id="creative-gifts" class="fade-in" style="padding:40px 20px; background:#fffdf8; text-align:center;">
+        <h3 style="font-family:'Playfair Display',serif; color:var(--cta); font-size:1.4rem; margin-bottom:8px;">
+          Creative Gifts Collection ✨
+        </h3>
+        <p style="color:rgba(17,17,17,0.6); font-size:14px; margin-bottom:20px;">
+          Unique, aesthetic, and fun — handcrafted ideas that make every gift personal.
+        </p>
 
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:1200px; margin:auto;">
-    
-    <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:15px; transition:transform 0.3s; overflow:hidden;">
-      <img src="PhoneCovers.jpeg" alt="Aesthetic Mobile Covers" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
-      <h4 style="margin:10px 0 5px; color:#333; font-family:'Poppins',sans-serif;">Aesthetic Mobile Covers</h4>
-      <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Stylish, sleek, and designed to match your vibe.</p>
-    </div>
+        <div class="creative-row" style="max-width:1200px;margin:0 auto;">
+          <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:12px;">
+            <img src="PhoneCovers.jpeg" alt="Aesthetic Mobile Covers" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+            <h4 style="margin:10px 0 5px; color:#333;">Aesthetic Mobile Covers</h4>
+            <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Stylish, sleek, and designed to match your vibe.</p>
+          </div>
 
-    <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:15px; transition:transform 0.3s; overflow:hidden;">
-      <img src="Alphabet.jpeg" alt="Alphabet Frames" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
-      <h4 style="margin:10px 0 5px; color:#333; font-family:'Poppins',sans-serif;">Alphabet Frames</h4>
-      <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Personalized alphabet frames made with love and style.</p>
-    </div>
+          <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:12px;">
+            <img src="Alphabet.jpeg" alt="Alphabet Frames" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+            <h4 style="margin:10px 0 5px; color:#333;">Alphabet Frames</h4>
+            <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Personalized alphabet frames made with love and style.</p>
+          </div>
 
-    <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:15px; transition:transform 0.3s; overflow:hidden;">
-      <img src="DiyFrame.jpeg" alt="DIY Frames for Kids" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
-      <h4 style="margin:10px 0 5px; color:#333; font-family:'Poppins',sans-serif;">DIY Frames for Kids</h4>
-      <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Let kids paint, create, and capture their memories!</p>
-    </div>
+          <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:12px;">
+            <img src="DiyFrame.jpeg" alt="DIY Frames for Kids" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+            <h4 style="margin:10px 0 5px; color:#333;">DIY Frames for Kids</h4>
+            <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Let kids paint, create, and capture their memories!</p>
+          </div>
 
-    <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:15px; transition:transform 0.3s; overflow:hidden;">
-      <img src="MemoryBoard.jpeg" alt="Memory Board" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
-      <h4 style="margin:10px 0 5px; color:#333; font-family:'Poppins',sans-serif;">Memory Board</h4>
-      <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Your special moments, displayed beautifully in one frame.</p>
-    </div>
+          <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:12px;">
+            <img src="MemoryBoard.jpeg" alt="Memory Board" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+            <h4 style="margin:10px 0 5px; color:#333;">Memory Board</h4>
+            <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Your special moments, displayed beautifully in one frame.</p>
+          </div>
 
-    <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:15px; transition:transform 0.3s; overflow:hidden;">
-      <img src="ChocolateAlphabet.jpeg" alt="Chocolatey Alphabet" style="width:100%; height:180px; object-fit:cover; border-radius:12px;">
-      <h4 style="margin:10px 0 5px; color:#333; font-family:'Poppins',sans-serif;">Chocolatey Alphabet</h4>
-      <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Sweet treats shaped with initials and creativity 🍫</p>
-    </div>
+          <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:12px;">
+            <img src="ChocolateAlphabet.jpeg" alt="Chocolatey Alphabet" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+            <h4 style="margin:10px 0 5px; color:#333;">Chocolatey Alphabet</h4>
+            <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Sweet treats shaped with initials and creativity 🍫</p>
+          </div>
+        </div>
+      </section>
 
-  </div>
-</section>
+      <!-- MOMENTS -->
+      <section id="moments" class="fade-in" style="padding:40px 20px; text-align:center; background:linear-gradient(135deg,#fff0f6,#fff7e6); border-radius:18px; margin:30px auto; max-width:1100px; box-shadow:0 8px 25px rgba(255,182,193,0.3);">
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:10px; color:#333;">💝 Moments of Joy</h3>
+        <p style="color:rgba(17,17,17,0.7); font-size:1rem; margin-bottom:18px;">
+          Every Uphaar Creation carries emotion — here’s how we’ve made celebrations sparkle across India ✨
+        </p>
 
-<script>
-  // Subtle zoom animation on hover
-  document.querySelectorAll('#creative-gifts div[style*="box-shadow"]').forEach(card => {
-    card.addEventListener('mouseover', () => card.style.transform = 'scale(1.05)');
-    card.addEventListener('mouseout', () => card.style.transform = 'scale(1)');
-  });
-</script>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:18px;">
+          <div style="background:#fff; border-radius:16px; overflow:hidden; width:300px; box-shadow:0 6px 20px rgba(255,160,122,0.3); transition:transform 0.3s ease;">
+            <div style="padding:14px;">
+              <h4 style="font-family:'Playfair Display',serif; color:var(--cta); margin-bottom:8px;">A Surprise Birthday</h4>
+              <p style="color:rgba(17,17,17,0.7); font-size:0.95rem;">“That was wonderful and superbly done by youuuu thank youu soooo much for wonderful service and my husband alsooo love that soooo muchhhhh thank youu sooo much and i will surely suggest my all friends and family about your Uphaar creation.”</p>
+              <div style="margin-top:8px; font-weight:600; color:#333;">– Hiral Doshi</div>
+            </div>
+          </div>
 
-      <section id="moments" class="fade-in" style="padding:60px 20px; text-align:center; background:linear-gradient(135deg,#fff0f6,#fff7e6); border-radius:25px; margin:50px auto; max-width:1100px; box-shadow:0 8px 25px rgba(255,182,193,0.3);">
-  
-  <h3 style="font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:10px; color:#333;">💝 Moments of Joy</h3>
-  <p style="color:rgba(17,17,17,0.7); font-size:1rem; margin-bottom:30px;">
-    Every Uphaar Creation carries emotion — here’s how we’ve made celebrations sparkle across India ✨
-  </p>
+          <div style="background:#fff; border-radius:16px; overflow:hidden; width:300px; box-shadow:0 6px 20px rgba(255,182,193,0.4); transition:transform 0.3s ease;">
+            <div style="padding:14px;">
+              <h4 style="font-family:'Playfair Display',serif; color:#ffb347; margin-bottom:8px;">Corporate Elegance</h4>
+              <p style="color:rgba(17,17,17,0.7); font-size:0.95rem;">“Hey, the hamper was really amazing, I loved it everything is so good, it was exactly what I wanted!! Your hamper made a perfect evening for my Mom & Dad's 22nd Anniversary!!”</p>
+              <div style="margin-top:8px; font-weight:600; color:#333;">– Moksha Agrawal</div>
+            </div>
+          </div>
 
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:25px;">
-    
-    <!-- Card 1 -->
-    <div style="background:#fff; border-radius:20px; overflow:hidden; width:300px; box-shadow:0 6px 20px rgba(255,160,122,0.3); transition:transform 0.3s ease;">
-      <div style="padding:15px;">
-        <h4 style="font-family:'Playfair Display',serif; color:#ff7f50; margin-bottom:8px;">A Surprise Birthday</h4>
-        <p style="color:rgba(17,17,17,0.7); font-size:0.95rem;">“That was wonderful and superbly done by youuuu thank youu soooo much for wonderful service and my husband alsooo love that soooo muchhhhh thank youu sooo much and i will surely suggest my all friends and family about your Uphaar creation.”</p>
-        <div style="margin-top:8px; font-weight:600; color:#333;">– Hiral Doshi</div>
-      </div>
-    </div>
+          <div style="background:#fff; border-radius:16px; overflow:hidden; width:300px; box-shadow:0 6px 20px rgba(255,218,185,0.4); transition:transform 0.3s ease;">
+            <div style="padding:14px;">
+              <h4 style="font-family:'Playfair Display',serif; color:#ffa07a; margin-bottom:8px;">Wedding Memories</h4>
+              <p style="color:rgba(17,17,17,0.7); font-size:0.95rem;">“Our bridesmaid hampers were dreamy — handcrafted and filled with thoughtful surprises!”</p>
+              <div style="margin-top:8px; font-weight:600; color:#333;">– Neha Patel, Vadodara</div>
+            </div>
+          </div>
+        </div>
 
-    <!-- Card 2 -->
-    <div style="background:#fff; border-radius:20px; overflow:hidden; width:300px; box-shadow:0 6px 20px rgba(255,182,193,0.4); transition:transform 0.3s ease;">
-      <div style="padding:15px;">
-        <h4 style="font-family:'Playfair Display',serif; color:#ffb347; margin-bottom:8px;">Corporate Elegance</h4>
-        <p style="color:rgba(17,17,17,0.7); font-size:0.95rem;">“
-Hey, the hamper was really amazing, I loved it everything is so good, it was exactly what I
-wanted!!
-Your hamper made a perfect evening for my Mom & Dad's 22nd Anniversary!!. Glad to have my first experience with you which turned out so beautiful!!
-Lots of love to uphaar creation!!
-”</p>
-        <div style="margin-top:8px; font-weight:600; color:#333;">– Moksha Agrawal</div>
-      </div>
-    </div>
+        <div style="margin-top:26px;">
+          <a href="https://wa.me/918238487316?text=Hi!%20I’d%20like%20to%20share%20some%20moments%20of%20joy!" 
+             style="display:inline-block; background:linear-gradient(135deg,#ffb347,#ff7f50); color:#fff; text-decoration:none; padding:12px 26px; border-radius:35px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:15px; box-shadow:0 8px 18px rgba(255,160,122,0.4); transition:all 0.3s ease;">
+            Share Your Moment
+          </a>
+        </div>
+      </section>
 
-    <!-- Card 3 -->
-    <div style="background:#fff; border-radius:20px; overflow:hidden; width:300px; box-shadow:0 6px 20px rgba(255,218,185,0.4); transition:transform 0.3s ease;">
-      <div style="padding:15px;">
-        <h4 style="font-family:'Playfair Display',serif; color:#ffa07a; margin-bottom:8px;">Wedding Memories</h4>
-        <p style="color:rgba(17,17,17,0.7); font-size:0.95rem;">“Our bridesmaid hampers were dreamy — handcrafted and filled with thoughtful surprises!”</p>
-        <div style="margin-top:8px; font-weight:600; color:#333;">– Neha Patel, Vadodara</div>
-      </div>
-    </div>
+      <!-- PERSONALIZE FORM -->
+      <section id="personalize" style="padding:32px 16px;background-color:#fffaf6;text-align:center;overflow:hidden; border-radius:14px;">
+        <h3 style="font-family:'Playfair Display',serif;color:var(--cta);font-size:1.4rem;margin-bottom:8px;">🎀 Personalize Your Hamper</h3>
+        <p style="color:rgba(17,17,17,0.6);font-size:15px;max-width:600px;margin:0 auto 20px;">Choose your favorites, craft your theme, and send it directly to us via WhatsApp</p>
 
-  </div>
+        <form id="hamperForm" style="max-width:700px;margin:auto;text-align:left;background:#fff;border-radius:18px;box-shadow:0 6px 20px rgba(255,182,193,0.25);padding:20px 18px;font-family:'Poppins',sans-serif;">
 
-  <div style="margin-top:40px;">
-    <a href="https://wa.me/918238487316?text=Hi!%20I’d%20like%20to%20share%20some%20moments%20of%20joy!" 
-       style="display:inline-block; background:linear-gradient(135deg,#ffb347,#ff7f50); color:#fff; text-decoration:none; padding:12px 26px; border-radius:35px; font-family:'DM Sans',sans-serif; font-weight:600; font-size:15px; box-shadow:0 8px 18px rgba(255,160,122,0.4); transition:all 0.3s ease;">
-      Share Your Moment
-    </a>
-  </div>
+          <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">Choose Theme</label>
+          <select id="theme" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ffcab0;margin-bottom:12px;outline:none;">
+            <option>Pastel Pink Elegance</option>
+            <option>Golden Luxury</option>
+            <option>Chocolate Charm</option>
+            <option>Festive Red & Gold</option>
+            <option>Minimal White Bloom</option>
+            <option>Royal Blue Classic</option>
+          </select>
 
-</section>
-<section id="personalize" style="padding:70px 20px;background-color:#fffaf6;text-align:center;overflow:hidden;animation:fadeIn 1.2s ease;">
-  
-  <h3 style="font-family:'Playfair Display',serif;color:#ff7f50;font-size:1.8rem;margin-bottom:10px;">
-    🎀 Personalize Your Hamper
-  </h3>
-  <p style="color:rgba(17,17,17,0.6);font-size:15px;max-width:600px;margin:0 auto 40px;">
-    Choose your favorites, craft your theme, and send it directly to us via WhatsApp 
-  </p>
+          <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">🎁 Select Items</label>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+            <!-- keep values same -->
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="Message Card" style="accent-color:#ff7f50;"> Message Card
+            </label>
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="Chocolates" style="accent-color:#ff7f50;"> Chocolates
+            </label>
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="Candles" style="accent-color:#ff7f50;"> Candles
+            </label>
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="Alphabet Frames" style="accent-color:#ff7f50;"> Alphabet Frames
+            </label>
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="DIY Frames for Kids" style="accent-color:#ff7f50;"> DIY Frames for Kids
+            </label>
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="Memory Board" style="accent-color:#ff7f50;"> Memory Board
+            </label>
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="Chocolatey Alphabet" style="accent-color:#ff7f50;"> Chocolatey Alphabet
+            </label>
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="Mini Flowers" style="accent-color:#ff7f50;"> Mini Flowers
+            </label>
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="Personalized Keychain" style="accent-color:#ff7f50;"> Personalized Keychain
+            </label>
+            <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
+              <input type="checkbox" value="Aesthetic Mobile Cover" style="accent-color:#ff7f50;"> Aesthetic Mobile Cover
+            </label>
+          </div>
 
-  <form id="hamperForm" style="max-width:700px;margin:auto;text-align:left;background:#fff;border-radius:18px;box-shadow:0 6px 20px rgba(255,182,193,0.25);padding:30px 25px;font-family:'Poppins',sans-serif;">
+          <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">💌 Message Style</label>
+          <select id="message" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ffcab0;margin-bottom:12px;outline:none;">
+            <option>Classic Elegant</option>
+            <option>Minimal Modern</option>
+            <option>Romantic Script</option>
+            <option>Playful Handwritten</option>
+          </select>
 
-    <!-- Theme selection -->
-    <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">Choose Theme</label>
-    <select id="theme" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ffcab0;margin-bottom:18px;outline:none;">
-      <option>Pastel Pink Elegance</option>
-      <option>Golden Luxury</option>
-      <option>Chocolate Charm</option>
-      <option>Festive Red & Gold</option>
-      <option>Minimal White Bloom</option>
-      <option>Royal Blue Classic</option>
-    </select>
+          <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">👤 Your Name</label>
+          <input id="name" type="text" placeholder="Enter your name" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ffcab0;margin-bottom:12px;outline:none;">
 
-    <!-- Include items -->
-    <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">🎁 Select Items</label>
-    <div style="display:flex;flex-wrap:wrap;gap:15px;margin-bottom:20px;">
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="Message Card" style="accent-color:#ff7f50;"> Message Card
-      </label>
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="Chocolates" style="accent-color:#ff7f50;"> Chocolates
-      </label>
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="Candles" style="accent-color:#ff7f50;"> Candles
-      </label>
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="Alphabet Frames" style="accent-color:#ff7f50;"> Alphabet Frames
-      </label>
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="DIY Frames for Kids" style="accent-color:#ff7f50;"> DIY Frames for Kids
-      </label>
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="Memory Board" style="accent-color:#ff7f50;"> Memory Board
-      </label>
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="Chocolatey Alphabet" style="accent-color:#ff7f50;"> Chocolatey Alphabet
-      </label>
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="Mini Flowers" style="accent-color:#ff7f50;"> Mini Flowers
-      </label>
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="Personalized Keychain" style="accent-color:#ff7f50;"> Personalized Keychain
-      </label>
-      <label style="flex:1 1 45%;display:flex;align-items:center;gap:8px;">
-        <input type="checkbox" value="Aesthetic Mobile Cover" style="accent-color:#ff7f50;"> Aesthetic Mobile Cover
-      </label>
-    </div>
+          <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">🌈 Ribbon & Wrap Color</label>
+          <select id="color" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ffcab0;margin-bottom:12px;outline:none;">
+            <option>Peach</option>
+            <option>Gold</option>
+            <option>White</option>
+            <option>Lavender</option>
+            <option>Blue</option>
+            <option>Yellow</option>
+            <option>Orange</option>
+            <option>Red</option>
+            <option>Any colour would be fine</option>
+          </select>
 
-    <!-- Message style -->
-    <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">💌 Message Style</label>
-    <select id="message" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ffcab0;margin-bottom:18px;outline:none;">
-      <option>Classic Elegant</option>
-      <option>Minimal Modern</option>
-      <option>Romantic Script</option>
-      <option>Playful Handwritten</option>
-    </select>
-
-    <!-- Name -->
-    <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">👤 Your Name</label>
-    <input id="name" type="text" placeholder="Enter your name" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ffcab0;margin-bottom:18px;outline:none;">
-
-    <!-- Color tone -->
-    <label style="display:block;margin-bottom:8px;color:#333;font-weight:600;">🌈 Ribbon & Wrap Color</label>
-    <select id="color" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ffcab0;margin-bottom:25px;outline:none;">
-      <option>Peach</option>
-      <option>Gold</option>
-      <option>White</option>
-      <option>Lavender</option>
-      <option>Blue</option>
-      <option>Yellow</option>
-      <option>Orange</option>
-      <option>Red</option>
-      <option>Any colour would be fine</option>
-
-    </select>
-
-    <!-- CTA -->
-    <div style="text-align:center;">
-      <button type="button" onclick="sendToWhatsApp()"
-        style="background-color:#ff7f50;color:#fff;border:none;padding:12px 28px;border-radius:30px;font-weight:600;cursor:pointer;font-size:15px;transition:0.3s;">
-         Send to WhatsApp
-      </button>
-    </div>
-
-  </form>
-
-  <style>
-    @keyframes fadeIn {
-      from {opacity:0; transform:translateY(30px);}
-      to {opacity:1; transform:translateY(0);}
-    }
-  </style>
-
-  <script>
-    function sendToWhatsApp() {
-      const theme = document.getElementById('theme').value;
-      const messageStyle = document.getElementById('message').value;
-      const name = document.getElementById('name').value;
-      const color = document.getElementById('color').value;
-
-      const selectedItems = Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
-        .map(cb => cb.value).join(', ');
-
-      const text = `✨ *UPHAAR - Personalized Hamper Request* ✨\n\n`
-        + `👤 Name: ${name}\n`
-        + `🎀 Theme: ${theme}\n`
-        + `🎁 Items: ${selectedItems}\n`
-        + `💌 Message Style: ${messageStyle}\n`
-        + `🌈 Ribbon Color: ${color}\n\n`
-        + `Let's make it special! 💖`;
-
-      const phoneNumber = "918238487316"; // <--- replace with your WhatsApp number (with country code)
-      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
-      window.open(url, '_blank');
-    }
-  </script>
-
-</section>
+          <div style="text-align:center;margin-top:6px;">
+            <button type="button" id="sendFormBtn"
+              style="background-color:var(--cta);color:#fff;border:none;padding:12px 28px;border-radius:30px;font-weight:600;cursor:pointer;font-size:15px;transition:0.3s;">
+               Send to WhatsApp
+            </button>
+          </div>
+        </form>
+      </section>
 
       <!-- BUILDER -->
       <section id="builder" class="fade-in">
@@ -556,11 +478,11 @@ Lots of love to uphaar creation!!
         <p style="color:rgba(17,17,17,0.6)">Select items, add a note, and send your selection directly to WhatsApp.</p>
 
         <div class="builder" style="margin-top:12px">
-          <div style="flex:1;min-width:320px">
+          <div style="flex:1;min-width:280px">
             <div style="margin-bottom:8px;font-weight:800">Choose up to 4 items</div>
             <div class="options" id="options">
               <div class="chip" data-name="Chocolates & Sweet Treats">🎀 Chocolates & Sweet Treats</div>
-              <div class="chip" data-name=" Message Cards">💌 Message Cards</div>
+              <div class="chip" data-name="Message Cards">💌 Message Cards</div>
               <div class="chip" data-name="Mini Flower Bunches">🌸 Mini Flower Bunches</div>
               <div class="chip" data-name="Chocolates">🍫 Chocolates</div>
               <div class="chip" data-name="Perfumes">🥌Perfumes</div>
@@ -574,7 +496,7 @@ Lots of love to uphaar creation!!
               <input id="note" placeholder="Happy Birthday! Add a short note..." style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.06)" />
             </div>
 
-            <div style="margin-top:12px;display:flex;gap:10px">
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
               <a id="sendHamper" class="btn btn-primary" href="#">Send on WhatsApp</a>
               <button id="clearBuilder" class="btn btn-ghost">Clear</button>
             </div>
@@ -590,41 +512,26 @@ Lots of love to uphaar creation!!
       </section>
 
       <!-- ABOUT / FOUNDER -->
-      <section id="about" class="fade-in" style="padding:60px 20px; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; background:linear-gradient(135deg,#fff7e6,#fff0f6); border-radius:25px; margin:40px auto; max-width:1000px; box-shadow:0 8px 20px rgba(255,182,193,0.2);">
-  
-  <div class="about-grid" style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:40px;">
-    
-    <!-- Founder Image -->
-    <div class="founder" aria-hidden style="width:160px; height:160px; border-radius:50%; overflow:hidden; box-shadow:0 6px 15px rgba(0,0,0,0.15); border:5px solid #fff; background:#fff;">
-      <img src="logo.jpeg" alt="Founder - Prisha Jain" style="width:100%; height:100%; object-fit:cover;">
-    </div>
+      <section id="about" class="fade-in" style="padding:28px; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; background:linear-gradient(135deg,#fff7e6,#fff0f6); border-radius:18px; margin:30px auto; max-width:1000px; box-shadow:0 8px 20px rgba(255,182,193,0.2);">
+        <div class="about-grid" style="display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:20px;">
+          <div class="founder" aria-hidden style="width:140px; height:140px; border-radius:50%; overflow:hidden; box-shadow:0 6px 15px rgba(0,0,0,0.15); border:5px solid #fff; background:#fff;">
+            <img src="logo.jpeg" alt="Founder - Prisha Jain" style="width:100%; height:100%; object-fit:cover;">
+          </div>
 
-    <!-- Text Content -->
-    <div style="flex:1; min-width:280px;">
-      <h3 style="font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:12px; color:#333;">💫 About Uphaar Creation</h3>
-      <p style="color:rgba(17,17,17,0.7); line-height:1.6; font-size:1rem; margin-bottom:18px;">
-        At <strong>Uphaar Creation</strong>, we believe gifting is an expression — of emotion, gratitude, and love. Founded by 
-        <strong>Prisha Jain</strong> in Vadodara, our brand crafts heartfelt hampers blending artistry, elegance, and warmth. Each UPHAAR is crafted to perfection, reflecting both sophistication and sentiment — whether it’s a grand celebration, a corporate gesture, or a simple “thinking of you” moment.
-With customization options for every budget and nationwide delivery, UPHAAR ensures your gifts reach your loved ones — beautifully presented, thoughtfully curated, and made with love.
+          <div style="flex:1; min-width:260px;">
+            <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:8px; color:#333;">💫 About Uphaar Creation</h3>
+            <p style="color:rgba(17,17,17,0.7); line-height:1.6; font-size:0.96rem; margin-bottom:12px;">
+              At <strong>Uphaar Creation</strong>, we believe gifting is an expression — of emotion, gratitude, and love. Founded by 
+              <strong>Prisha Jain</strong> in Vadodara, our brand crafts heartfelt hampers blending artistry, elegance, and warmth. Each UPHAAR is crafted to perfection, reflecting both sophistication and sentiment — whether it’s a grand celebration, a corporate gesture, or a simple “thinking of you” moment.
+            </p>
 
-Because at Uphaar, every creation tells a story — one that begins from us, to yours. <br><br><b><i>Uphaar
-Luxury Gifting. Thoughtfully Curated. Beautifully Delivered. </i></b><br><br>
-
-
-Based in Vadodara, Gujarat, Uphaar by Prisha Jain offers bespoke hampers and unique gifting solutions for every occasion and budget.
-Each creation reflects refined craftsmanship, timeless elegance, and a personal touch — delivered with care, across India.
-
-      </p>
-
-      <!-- Founder Note -->
-      <div class="founder-note" id="founderNote" style="background:rgba(255, 223, 186, 0.4); border-left:5px solid #ffb347; border-radius:12px; padding:15px 20px; box-shadow:0 4px 10px rgba(255, 204, 204, 0.3); transition:transform 0.3s ease; font-family:'DM Sans',sans-serif;">
-        <p style="margin:0 0 10px; font-size:15px; color:#333;">"Each gift is a story wrapped with emotion. We handpick every item, craft packaging with care, and write messages that matter."</p>
-        <div style="margin-top:10px; font-weight:700; color:#ff7f50; font-family:'Playfair Display',serif;">— Prisha Jain</div>
-      </div>
-    </div>
-
-  </div>
-</section>
+            <div class="founder-note" id="founderNote" style="background:rgba(255, 223, 186, 0.4); border-left:5px solid #ffb347; border-radius:12px; padding:12px 16px;">
+              <p style="margin:0 0 8px; font-size:14px; color:#333;">"Each gift is a story wrapped with emotion. We handpick every item, craft packaging with care, and write messages that matter."</p>
+              <div style="margin-top:8px; font-weight:700; color:var(--cta); font-family:'Playfair Display',serif;">— Prisha Jain</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- CONTACT -->
       <section id="contact" class="fade-in">
@@ -640,69 +547,140 @@ Each creation reflects refined craftsmanship, timeless elegance, and a personal 
 
           <div style="padding:16px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff);box-shadow:0 10px 30px rgba(0,0,0,0.04)">
             <h4>Quick Info</h4>
-            <p style="color:rgba(17,17,17,0.6)"><strong>Uphaar Creation by Prisha Jain</strong><br>Vadodara, Gujarat • Nationwide delivery<br><a href="mailto:jainprisha116@outlook.com" style="color:#ff7f50;text-decoration: none;">Connect via mail</a></p>
+            <p style="color:rgba(17,17,17,0.6)"><strong>Uphaar Creation by Prisha Jain</strong><br>Vadodara, Gujarat • Nationwide delivery<br><a href="mailto:jainprisha116@outlook.com" style="color:var(--cta);text-decoration: none;">Connect via mail</a></p>
           </div>
         </div>
       </section>
 
     </main>
 
-   <footer style="background:#fffefc; text-align:center; padding:25px 10px; border-top:1px solid rgba(0,0,0,0.05); font-family:'Poppins', sans-serif; color:#444; margin-top:40px;">
-  
-  <h3 style="font-family:'Playfair Display',serif; font-size:1.2rem; color:#ff7f50; margin:0;">Uphaar Creation</h3>
-  <p style="font-size:13px; color:rgba(0,0,0,0.65); margin:4px 0 12px;">
-    Luxury Gifting • Thoughtfully Curated • Beautifully Delivered 🎁
-  </p>
+    <footer style="background:#fffefc; text-align:center; padding:18px 10px; border-top:1px solid rgba(0,0,0,0.05); font-family:'Poppins', sans-serif; color:#444; margin-top:24px;">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--cta); margin:0;">Uphaar Creation</h3>
+      <p style="font-size:13px; color:rgba(0,0,0,0.65); margin:6px 0 10px;">Luxury Gifting • Thoughtfully Curated • Beautifully Delivered 🎁</p>
 
-  <div style="display:flex; justify-content:center; align-items:center; gap:18px; margin-bottom:10px;">
-    <a href="https://www.instagram.com/Uphaar Creationcreation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="text-decoration:none;">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" 
-           alt="Instagram" width="20" height="20" 
-           style="vertical-align:middle; transition:0.3s;">
-    </a>
-    <a href="https://wa.me/918238487316" target="_blank" style="text-decoration:none;">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
-           alt="WhatsApp" width="20" height="20" 
-           style="vertical-align:middle; transition:0.3s;">
-    </a>
-    <a href="mailto:jainprisha116@outlook.com" style="text-decoration:none;">
-      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" 
-           alt="Email" width="20" height="20" 
-           style="vertical-align:middle; transition:0.3s;">
-    </a>
-    <a href="#" style="text-decoration:none;">
-      <img src="https://cdn-icons-png.flaticon.com/512/84/84510.png" 
-           alt="Website" width="20" height="20" 
-           style="vertical-align:middle; transition:0.3s;">
-    </a>
-  </div>
+      <div style="display:flex; justify-content:center; align-items:center; gap:18px; margin-bottom:10px;">
+        <a href="#" target="_blank" style="text-decoration:none;">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="20" height="20" style="vertical-align:middle; transition:0.3s;">
+        </a>
+        <a href="https://wa.me/918238487316" target="_blank" style="text-decoration:none;">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" width="20" height="20" style="vertical-align:middle; transition:0.3s;">
+        </a>
+        <a href="mailto:jainprisha116@outlook.com" style="text-decoration:none;">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" width="20" height="20" style="vertical-align:middle; transition:0.3s;">
+        </a>
+      </div>
 
-  <p style="font-size:11.5px; color:rgba(0,0,0,0.5); margin:0;">
-    © 2025 Uphaar Creation Creation • Made with 💝 in India
-  </p>
-</footer>
+      <p style="font-size:11.5px; color:rgba(0,0,0,0.5); margin:0;">© 2025 Uphaar Creation • Made with 💝 in India</p>
+    </footer>
   </div>
 
   <script>
-    // ------- Replace with your WhatsApp number (country code + number) -------
-    const PHONE ='8238487316'; 
+    /* -------------------------
+       Configuration (single source of truth)
+       ------------------------- */
+    const CONTACT_PHONE = '918238487316'; // with country code
+    function wa(message){ return 'https://wa.me/' + CONTACT_PHONE + '?text=' + encodeURIComponent(message); }
 
-    function wa(message){ return 'https://wa.me/'+PHONE+'?text='+encodeURIComponent(message); }
-
-    // Connect top/order buttons
+    // Connect top/order buttons (orderTop / orderHero / wh1)
     document.querySelectorAll('#orderTop, #orderHero').forEach(el=>{
-      el.addEventListener('click',(e)=>{ e.preventDefault(); window.open(wa('Hi Uphaar Creation Creation! I would like to place an order.'), '_blank'); });
+      el.addEventListener('click',(e)=>{ e.preventDefault(); window.open(wa('Hi Uphaar Creation! I would like to place an order.'), '_blank'); });
     });
-    document.getElementById('wh1').addEventListener('click',(e)=>{ e.preventDefault(); window.open(wa('Hi Uphaar Creation Creation! I would like details on your hampers.'), '_blank'); });
+    document.getElementById('wh1').addEventListener('click',(e)=>{ e.preventDefault(); window.open(wa('Hi Uphaar Creation! I would like details on your hampers.'), '_blank'); });
 
-    // Builder interactions
+    /* -------------------------
+       HERO SLIDER (works with any number of images)
+       ------------------------- */
+    (function(){
+      const slider = document.getElementById('slider');
+      const slides = Array.from(slider.querySelectorAll('img'));
+      const dotsContainer = document.getElementById('heroDots');
+      let index = 0;
+      let timer = null;
+      const total = slides.length;
+
+      // create dots dynamically
+      for(let i=0;i<total;i++){
+        const d = document.createElement('button');
+        d.className = 'dot';
+        d.setAttribute('aria-label','Go to slide '+(i+1));
+        d.addEventListener('click', ()=> { index = i; update(); resetAuto(); });
+        dotsContainer.appendChild(d);
+      }
+
+      const dots = Array.from(dotsContainer.children);
+
+      function update(){
+        // update transform
+        slider.style.transform = 'translateX(-' + (index * 100) + '%)';
+        // active dot
+        dots.forEach((dot,i)=> dot.classList.toggle('active', i === index) );
+      }
+
+      function next(){
+        index = (index + 1) % total;
+        update();
+      }
+
+      function resetAuto(){
+        if(timer) clearInterval(timer);
+        timer = setInterval(next, 5000);
+      }
+
+      // touch support for mobile (swipe)
+      let startX = 0, moveX = 0;
+      slider.addEventListener('touchstart', (e)=>{
+        if(e.touches && e.touches[0]) startX = e.touches[0].clientX;
+      }, {passive:true});
+      slider.addEventListener('touchmove', (e)=>{
+        if(e.touches && e.touches[0]) moveX = e.touches[0].clientX;
+      }, {passive:true});
+      slider.addEventListener('touchend', ()=>{
+        const diff = startX - moveX;
+        if(Math.abs(diff) > 40){
+          if(diff > 0) { index = Math.min(total-1, index+1); } else { index = Math.max(0, index-1); }
+          update(); resetAuto();
+        }
+        startX = moveX = 0;
+      });
+
+      // initialize
+      update();
+      resetAuto();
+
+      // resize guard: ensure slider maintains height if images are different
+      window.addEventListener('resize', ()=> {
+        // no-op for now; CSS handles image scaling (kept for future extension)
+      });
+    })();
+
+    /* -------------------------
+       Personalize form -> WhatsApp
+       ------------------------- */
+    document.getElementById('sendFormBtn').addEventListener('click', ()=>{
+      const theme = document.getElementById('theme').value;
+      const messageStyle = document.getElementById('message').value;
+      const name = document.getElementById('name').value || '-';
+      const color = document.getElementById('color').value;
+      const selectedItems = Array.from(document.querySelectorAll('#personalize input[type=checkbox]:checked')).map(cb => cb.value).join(', ');
+      const text = `✨ *UPHAAR - Personalized Hamper Request* ✨\n\n`
+        + `👤 Name: ${name}\n`
+        + `🎀 Theme: ${theme}\n`
+        + `🎁 Items: ${selectedItems || '-'}\n`
+        + `💌 Message Style: ${messageStyle}\n`
+        + `🌈 Ribbon Color: ${color}\n\nLet's make it special! 💖`;
+      window.open('https://wa.me/' + CONTACT_PHONE + '?text=' + encodeURIComponent(text), '_blank');
+    });
+
+    /* -------------------------
+       Builder interactions (unchanged logic, responsive)
+       ------------------------- */
     const chips = document.querySelectorAll('.chip');
     const preview = document.getElementById('preview');
     const note = document.getElementById('note');
     let selected = [];
 
-    chips.forEach(c=> c.addEventListener('click', ()=>{
-      const name = c.dataset.name;
+    chips.forEach(c=> c.addEventListener('click', ()=> {
+      const name = c.dataset.name.trim();
       if(selected.includes(name)){ selected = selected.filter(x=>x!==name); c.classList.remove('selected'); }
       else { if(selected.length < 4){ selected.push(name); c.classList.add('selected'); } else { c.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:260}); } }
       renderPreview();
@@ -713,32 +691,38 @@ Each creation reflects refined craftsmanship, timeless elegance, and a personal 
       preview.innerHTML = '<ul style="padding-left:18px;color:#063">'+selected.map(s=>'<li>'+escapeHtml(s)+'</li>').join('')+'</ul>' + (note.value?('<div style="margin-top:8px;font-weight:700">Note:</div><div>'+escapeHtml(note.value)+'</div>'):'');
     }
 
-    document.getElementById('sendHamper').addEventListener('click',(e)=>{
+    document.getElementById('sendHamper').addEventListener('click',(e)=> {
       e.preventDefault();
       if(!selected.length){ alert('Choose at least one item.'); return; }
       const msg = 'Hi Uphaar Creation! I would like this hamper:\\n- '+selected.join('\\n- ') + '\\n\\nNote: '+(note.value||'-') + '\\n\\nPlease confirm availability and delivery options.';
       window.open(wa(msg),'_blank');
       confetti();
     });
+
     document.getElementById('clearBuilder').addEventListener('click',(e)=>{ e.preventDefault(); selected=[]; chips.forEach(c=>c.classList.remove('selected')); note.value=''; renderPreview(); });
 
-    // auto scroll featured
-    const carousel = document.getElementById('carousel');
-    let pos=0;
-    function autoScroll(){ if(!carousel) return; pos += 300; if(pos > carousel.scrollWidth - carousel.clientWidth) pos = 0; carousel.scrollTo({left:pos,behavior:'smooth'}); setTimeout(autoScroll,3500); }
-    setTimeout(autoScroll,1400);
+    // initial preview
+    renderPreview();
 
-    // confetti
+    /* -------------------------
+       Confetti (small, efficient)
+       ------------------------- */
     const confDiv = document.getElementById('confetti');
-    function confetti(){ for(let i=0;i<36;i++){ const el=document.createElement('div'); el.style.position='absolute'; el.style.left=Math.random()*100+'%'; el.style.top='-10px'; el.style.width='10px'; el.style.height='14px'; el.style.borderRadius='3px'; el.style.background=["#ffd0df","#ffdf7a","#bff0d6","#ffd6b0","#fff"][Math.floor(Math.random()*5)]; el.style.transform='rotate('+Math.random()*360+'deg)'; el.style.zIndex=9999; confDiv.appendChild(el); const anim=el.animate([{transform:'translateY(0) rotate(0)',opacity:1},{transform:'translateY(820px) rotate(720deg)',opacity:0.6}],{duration:1100+Math.random()*700,easing:'cubic-bezier(.2,.8,.2,1)'}); anim.onfinish=()=>el.remove(); } }
+    function confetti(){ for(let i=0;i<28;i++){ const el=document.createElement('div'); el.style.position='absolute'; el.style.left=(10 + Math.random()*80)+'%'; el.style.top='-10px'; el.style.width=(8 + Math.random()*8)+'px'; el.style.height=(10 + Math.random()*10)+'px'; el.style.borderRadius='3px'; el.style.background=["#ffd0df","#ffdf7a","#bff0d6","#ffd6b0","#fff"][Math.floor(Math.random()*5)]; el.style.transform='rotate('+Math.random()*360+'deg)'; el.style.zIndex=9999; confDiv.appendChild(el); const anim = el.animate([{transform:'translateY(0) rotate(0)', opacity:1},{transform:'translateY(520px) rotate(540deg)', opacity:0.2}],{duration:1000+Math.random()*700, easing:'cubic-bezier(.2,.8,.2,1)'}); anim.onfinish = ()=> el.remove(); } }
 
-    function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+    /* -------------------------
+       Utilities
+       ------------------------- */
+    function escapeHtml(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
     // entrance animations
     document.querySelectorAll('.fade-in').forEach((el,i)=>{ el.style.opacity=0; el.style.transform='translateY(18px)'; setTimeout(()=>{ el.style.transition='opacity .9s ease, transform .9s cubic-bezier(.2,.9,.3,1)'; el.style.opacity=1; el.style.transform='translateY(0)'; }, 80*i); });
 
-    // initial preview
-    renderPreview();
+    // small hover handlers for creative item zoom (kept simple & mobile safe)
+    document.querySelectorAll('#creative-gifts [style*="box-shadow"]').forEach(card => {
+      card.addEventListener('mouseover', () => { if(window.innerWidth > 640) card.style.transform = 'scale(1.03)'; });
+      card.addEventListener('mouseout', () => { card.style.transform = 'scale(1)'; });
+    });
 
   </script>
 </body>
