@@ -343,9 +343,89 @@
       .brand h1{font-size:16px}
       .founder-note{font-size:14px}
     }
+    /* Anniversary Animation */
+#launch-anniversary {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #fff8f8, #ffeef1);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: opacity 1s ease;
+}
+
+.anniversary-hidden { display: none; }
+
+.door-animation {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.door-left, .door-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--pink), var(--yellow));
+  border: 2px solid rgba(0,0,0,0.1);
+  backface-visibility: hidden;
+  transform-origin: center;
+  transition: transform 2s ease;
+  border-radius: 8px;
+}
+
+.door-left { left: 0; }
+.door-right { right: 0; }
+
+.celebration-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease 2s;
+}
+
+.celebration-text h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--cta);
+  font-size: 1.8rem;
+}
+
+.celebration-text p {
+  font-family: 'DM Sans', sans-serif;
+  color: #444;
+  font-weight: 600;
+}
+
+
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0); opacity: 1; }
+  100% { transform: translateY(400px) rotate(360deg); opacity: 0; }
+}
+
   </style>
 </head>
 <body>
+  <!-- Anniversary Animation -->
+<div id="launch-anniversary" class="anniversary-hidden">
+  <div class="door-animation">
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+    <div class="celebration-text">
+      <h2> Uphaar Creation 🎉</h2>
+      <p>Celebrating our launch <br>November 9th, 2025💝</p>
+    </div>
+  </div>
+  <div class="confetti"></div>
+</div>
+
   <div class="confetti" id="confetti"></div>
 
   <div class="wrap">
@@ -385,6 +465,8 @@
           <img src="8.jpg" alt="Wellness Hamper">
           <img src="7.jpg" alt="Luxury Hamper">
           <img src="9.jpg" alt="Wellness Hamper">
+          <img src="6.jpg" alt="Luxury Hamper">
+
         </div>
 
         <!-- Overlay Text -->
@@ -536,6 +618,13 @@
             <h4 style="margin:10px 0 5px; color:#333;">Chocolatey Alphabet</h4>
             <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">Sweet treats shaped with initials and creativity 🍫</p>
           </div>
+        
+
+        <div style="background:#fff; border-radius:18px; box-shadow:0 5px 15px rgba(255,182,193,0.3); width:240px; padding:12px;">
+            <img src="AlphabetFrame.jpeg" alt="Chocolatey Alphabet" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+            <h4 style="margin:10px 0 5px; color:#333;">Alphabet Frame</h4>
+            <p style="font-size:13px; color:rgba(0,0,0,0.6); margin:0;">The perfect personalized frame.</p>
+          </div>
         </div>
       </section>
 
@@ -557,9 +646,9 @@
 
           <div style="background:#fff; border-radius:16px; overflow:hidden; width:300px; box-shadow:0 6px 20px rgba(255,182,193,0.4); transition:transform 0.3s ease;">
             <div style="padding:14px;">
-              <h4 style="font-family:'Playfair Display',serif; color:#ffb347; margin-bottom:8px;">Corporate Elegance</h4>
+              <h4 style="font-family:'Playfair Display',serif; color:#ffb347; margin-bottom:8px;">Anniversary Hamper</h4>
               <p style="color:rgba(17,17,17,0.7); font-size:0.95rem;">“Hey, the hamper was really amazing, I loved it everything is so good, it was exactly what I wanted!! Your hamper made a perfect evening for my Mom & Dad's 22nd Anniversary!!”</p>
-              <div style="margin-top:8px; font-weight:600; color:#333;">– Moksha Agrawal</div>
+              <div style="margin-top:8px; font-weight:600; color:#333;">– Moksha Angara</div>
             </div>
           </div>
 
@@ -781,6 +870,30 @@
     navLinks.classList.toggle('active');
   });
 </script>
+<script>
+  const today = new Date();
+  if (today.getMonth() === 10 && today.getDate() === 8) { // November = month 10
+    const anniversary = document.getElementById('launch-anniversary');
+    anniversary.classList.remove('anniversary-hidden');
+
+    const left = document.querySelector('.door-left');
+    const right = document.querySelector('.door-right');
+    const text = document.querySelector('.celebration-text');
+
+    setTimeout(() => {
+      left.style.transform = 'rotateY(-100deg)';
+      right.style.transform = 'rotateY(100deg)';
+      text.style.opacity = '1';
+    }, 800);
+
+    // Auto close animation after few seconds
+    setTimeout(() => {
+      anniversary.style.opacity = '0';
+      setTimeout(() => anniversary.remove(), 1000);
+    }, 5000);
+  }
+</script>
+
   <script>
     /* -------------------------
        Configuration (single source of truth)
